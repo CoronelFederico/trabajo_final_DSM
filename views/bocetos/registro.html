@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-xl-6">
+            <h1>Registrarse</h1>
+
+            <!-- <?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete') : ?>
+                <strong class="alert_green">Registro completado correctamente</strong>
+            <?php elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed') : ?>
+                <strong class="alert_red">Registro fallido, introduce bien los datos</strong>
+            <?php endif; ?>
+            <?php Utils::deleteSession('register'); ?> -->
+
+            <form action="<?= baseUrl ?>usuario/save" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" aria-describedby="nombreHelp" placeholder="Ingresar su nombre" required title="Este campo debe ser completado en su totalidad">
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">apellido</label>
+                    <input type="text" name="apellido" class="form-control" id="apellido" aria-describedby="apellidoHelp" placeholder="Ingresar su apellido" required title="Este campo debe ser completado en su totalidad">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingresar su Correo Electronico" required title="Este campo debe ser completado en su totalidad">
+                </div>
+
+                <div class="form-group">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="contraseña" placeholder="Ingresar una contraseña" required title="Este campo debe ser completado en su totalidad">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Registrarme</button>
+            </form>
+            <br>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>
