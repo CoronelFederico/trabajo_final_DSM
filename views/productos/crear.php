@@ -7,10 +7,6 @@
 <?php endif; ?>
 
 
-
-
-
-
 <form action="<?= $url_action ?>" method="POST" enctype="multipart/form-data">
 
     <label for="nombre">Nombre del producto</label>
