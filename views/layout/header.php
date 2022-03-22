@@ -55,7 +55,7 @@
 				</li>
 				<?php while ($cat = $categorias->fetch_object()) : ?>
 					<li>
-						<a href="<?= baseUrl ?>/categoria/ver&id=<?= $cat->id ?>"><?= $cat->nombre; ?></a>
+						<a href="<?= baseUrl ?>categoria/ver&id=<?= $cat->id ?>"><?= $cat->nombre; ?></a>
 					</li>
 				<?php endwhile; ?>
 

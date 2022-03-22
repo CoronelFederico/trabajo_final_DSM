@@ -16,11 +16,14 @@
 
     <?php while ($ped = $pedidos->fetch_object()) : ?>
         <tr>
-            <td> <a href="<?= baseUrl ?>pedido/detalle&id=<?= $ped->id ?>"> <?= $ped->id ?></a></td>
+            <td> 
+                <a href="<?= baseUrl ?>pedido/detalle&id=<?= $ped->id ?>" class="button"> 
+                    Ver orden: <?= $ped->id ?>  
+                </a></td>
             <td>$<?= $ped->costo ?></td>
             <td><?= $ped->fecha ?></td>
             <td><?= $ped->hora ?></td>
-            <td><?=Utils::showStatus($ped->estado)?></td>
+            <td><?= Utils::showStatus($ped->estado) ?></td>
         </tr>
     <?php endwhile; ?>
 
