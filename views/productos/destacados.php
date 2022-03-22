@@ -46,6 +46,7 @@
         <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
             <a href="<?= baseUrl ?>/producto/add&id=<?= $product->id ?>" class="button buy">Añadir al carrito</a>
         <?php endif; ?>
+        
     <?php endif; ?>
 
 
