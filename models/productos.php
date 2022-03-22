@@ -91,7 +91,8 @@ class Producto
 
         return $this;
     }
-    // oferta
+
+    //oferta
     public function getOferta()
     {
         return $this->oferta;
@@ -99,7 +100,7 @@ class Producto
 
     public function setOferta($oferta)
     {
-        $this->oferta = $this->db->real_escape_string($oferta);
+        $this->oferta = $oferta;
 
         return $this;
     }
@@ -128,7 +129,7 @@ class Producto
 
         return $this;
     }
-    
+
     public function getAll()
     {
         $productos = $this->db->query("SELECT * FROM producto ORDER BY id ASC");
@@ -137,14 +138,14 @@ class Producto
 
     public function getAllCategory()
     {
-        $sql = "SELECT p.*,c.nombre FROM producto p"
-                . "INNER JOIN categoria c ON c.id = p.categoria_id"
-                . "WHERE p.categoria_id = {$this->getCategoriaId()}"
-                . "ORDER BY id ASC";
+        $sql = "SELECT p.*, c.nombre AS 'catnombre' FROM producto p "
+            . "INNER JOIN categoria c ON c.id = p.categoria_id "
+            . "WHERE p.categoria_id = {$this->getCategoriaId()} "
+            . "ORDER BY id DESC";
         $productos = $this->db->query($sql);
         return $productos;
     }
-    
+
     public function getOne()
     {
         $producto = $this->db->query("SELECT * FROM producto WHERE id = {$this->getId()}");
@@ -164,7 +165,7 @@ class Producto
                                             '{$this->getDescripcion()}',
                                             '{$this->getPrecio()}',
                                             '{$this->getStock()}',
-                                            '{$this->getOferta()}',
+                                            -- '{$this->getOferta()}',
                                             CURDATE(),
                                             '{$this->getImagen()}'
                                             );";
@@ -201,7 +202,12 @@ class Producto
 
     public function edit()
     {
-        $sql = "UPDATE producto SET nombre='{$this->getNombre()}', descripcion='{$this->getDescripcion()}', precio={$this->getPrecio()}, stock={$this->getStock()},oferta={$this->getOferta()}, categoria_id={$this->getCategoriaId()}  ";
+        $sql = "UPDATE producto SET nombre='{$this->getNombre()}', 
+                                    descripcion='{$this->getDescripcion()}', 
+                                    precio={$this->getPrecio()}, 
+                                    stock={$this->getStock()},
+                                    -- oferta={$this->getOferta()},
+                                    categoria_id={$this->getCategoriaId()}  ";
 
         if ($this->getImagen() != null) {
             $sql .= ", imagen='{$this->getImagen()}'";
@@ -218,4 +224,36 @@ class Producto
         }
         return $result;
     }
+
+    public function update(){
+        $sql = "UPDATE producto SET precio = {$this->getPrecio()}, 
+                                    stock = stock + {$this->getStock()}
+                                WHERE id={$this->id}";
+
+
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
+    }
+
+    public function updateStock()
+    {
+        $sql = "UPDATE producto SET stock=stock-'{$this->getStock()}' 
+                WHERE id={$this->getId()};";
+
+
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
+    } 
+
+
 }

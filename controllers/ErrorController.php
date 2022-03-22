@@ -1,9 +1,9 @@
 <?php
 
-class ErrorController{
-    public function index(){
-        echo ' 
-<h1>EL SITIO QUE QUIERES INGRESAR NO ESTA DISPONIBLE</h1>
-        ';
+class ErrorController
+{
+    public function index()
+    {
+require_once 'views/error.php';
     }
 }

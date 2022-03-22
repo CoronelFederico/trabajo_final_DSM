@@ -28,13 +28,12 @@ class usuarioController
 				$usuario->setPassword($password);
 
 				$save = $usuario->save();
+
 				if ($save) {
 					$_SESSION['register'] = "complete";
 				} else {
 					$_SESSION['register'] = "failed";
 				}
-			} else {
-				$_SESSION['register'] = "failed";
 			}
 		} else {
 			$_SESSION['register'] = "failed";
@@ -62,24 +61,25 @@ class usuarioController
 				}
 			} else {
 				$_SESSION['error_login'] = 'Identificación fallida !!';
+				echo $_SESSION['error_login'];
 			}
-		} 
+		}
 		header("Location:" . baseUrl);
 		// echo '<script> window.location="'.baseUrl.' </script>';
 		echo '<script> console.log="inicio de sesion exitosa" </script>';
 	}
 
 
-public function logout(){
-	if(isset($_SESSION['identity'])){
-		unset($_SESSION['identity']);
+	public function logout()
+	{
+		if (isset($_SESSION['identity'])) {
+			unset($_SESSION['identity']);
+		}
+
+		if (isset($_SESSION['admin'])) {
+			unset($_SESSION['admin']);
+		}
+
+		header("Location:" . baseUrl);
 	}
-
-	if(isset($_SESSION['admin'])){
-		unset($_SESSION['admin']);
-	}
-
-	header("Location:".baseUrl);
-}
-
 }

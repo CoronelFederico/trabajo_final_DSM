@@ -37,24 +37,40 @@ class categoriaController
     public function ver()
     {
         if (isset($_GET['id'])) {
-            // echo '<pre>';
-            // var_dump($_GET['id']);
             $id = $_GET['id'];
-// conseguir categorias
-            $categoria = new categoria();
+            // conseguir categorias
+            $categoria = new Categoria();
             $categoria->setId($id);
-
             $categoria = $categoria->getOne();
-
-            // var_dump($categorias);
-//Conseguir productos  
-            $productos=new Producto();
+            //Conseguir productos  
+            $productos = new Producto();
             $productos->setCategoriaId($id);
-
             $productos = $productos->getAllCategory();
-
         }
 
         require_once 'views/categoria/ver.php';
+    }
+
+    public function delete()
+    {
+        Utils::isAdmin();
+
+        if (isset($_GET['id'])) {
+
+            $id = $_GET['id'];
+            $category = new Categoria();
+            $category->setId($id);
+
+            $delete = $category->delete();
+
+            if ($delete) {
+                $_SESSION['delete'] = 'complete';
+            } else {
+                $_SESSION['delete'] = 'failed';
+            }
+        } else {
+            $_SESSION['delete'] = 'failed';
+        }
+        header('Location:' . baseUrl . 'categoria/index');
     }
 }
