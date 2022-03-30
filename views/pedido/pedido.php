@@ -13,7 +13,7 @@
 
         <label for="contacto">Contacto</label>
         <input type="number" id="contacto" name="contacto" placeholder="Ingresa contacto" required autofocus title="El numero de contacto debe contener 10 caractere numericos">
-
+        <!-- <input type="tel" name="telphone"  pattern="[0-9]{10}"  title="Ten digits code" id="contacto" name="contacto" placeholder="Ingresa contacto" required autofocus title="El numero de contacto debe contener 10 caractere numericos" required > -->
         <input type="submit" value="Confirmar pedido">
     </form>
 
