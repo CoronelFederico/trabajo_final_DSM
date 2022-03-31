@@ -16,11 +16,11 @@ class Utils
     // solucionar error linea 20
     public static function isAdmin()
     {
-        if (!isset($_SESSION['admin'])) { 
+        if (!isset($_SESSION['admin'])) {
             // header('Location:' . baseUrl);
-            return "<script>
-location.href ='.baseUrl';
-</script>";
+            // echo "<script> location.href ='.baseUrl';</script>";
+            echo '<script> window.location="'.baseUrl.' </script>';
+
         } else {
             return true;
         }
@@ -51,10 +51,10 @@ location.href ='.baseUrl';
             'count' => 0,
             'total' => 0
         );
-        
+
         if (isset($_SESSION['carrito'])) {
             $stats['count'] = count($_SESSION['carrito']);
-            
+
             foreach ($_SESSION['carrito'] as $indice => $valor) {
                 $stats['total'] += $valor['precio'] * $valor['unidad'];
             }
@@ -79,4 +79,3 @@ location.href ='.baseUrl';
         return $value;
     }
 }
- 
