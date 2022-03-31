@@ -13,10 +13,14 @@ class Utils
         return $name;
     }
 
+    // solucionar error linea 20
     public static function isAdmin()
     {
         if (!isset($_SESSION['admin'])) { 
-            header('Location:' . baseUrl);
+            // header('Location:' . baseUrl);
+            return "<script>
+location.href ='.baseUrl';
+</script>";
         } else {
             return true;
         }

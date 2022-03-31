@@ -28,6 +28,8 @@
 
 
     <p>Productos pedidos:
+
+
     <table> <strong>
             <tr>
                 <!-- <th>id del producto</th> -->
@@ -36,7 +38,7 @@
                 <th>Nombre del producto</th>
                 <th>Precio del producto</th>
                 <th>unidades compradas</th>
-            </tr>
+            </tr> 
             <?php while ($producto = $productos->fetch_object()) : ?>
                 <tr>
                     <!-- <td><?= $producto->id ?></td> -->
@@ -74,11 +76,7 @@
 
 
             <?php endwhile; ?>
-            <!-- <form method=”POST”>
-                <input type="hidden" name="lista_nums" value="'<?= $stock?>.serialize($listaNums).'">
-                <input type="submit" value="Actualizar stock">
-            </form>
-            <strong></p> -->
+
 
 
     </table>
