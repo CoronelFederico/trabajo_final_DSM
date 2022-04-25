@@ -7,6 +7,8 @@
   --yellow: #ffc300;
   --red: #ff1818;
 }
+
+
 * {
   padding: 0px;
   margin: 0px;
@@ -68,7 +70,7 @@ td {
 }
 
 #logo {
-  /* padding: 20px; */
+  padding: 20px;
   margin-left: 720px;
   float: left;
 }
@@ -519,61 +521,41 @@ button {
   text-align: center;
 }
 
-/* @media screen and (max-device-width: 1920px) {
-  #logo {
-    /* padding: 20px; */
-    margin-left: 720px;
-    float: left;
+
+/* dispositivos */
+
+
+
+@media (min-width: 2550px) and (max-width: 2685px) { 
+    #logo {
+      margin-left: 1000px;
+    }
+  
+    #menu ul {
+      margin-left: 880px;
+    }
+  
+ }
+
+ @media (min-width: 1440px) and (max-width: 2550px) { 
+   #logo{
+     margin-left: 500px;
+   }
   }
 
-  #menu ul {
-    list-style: none;
-    text-decoration: none;
-    margin: 0px auto;
-    margin-left: 400px;
-  }
+ /*Responsive Screen sizes*/
+/*pantalla para mobile*/
+@media only screen and (max-width: 600px)
+{/*...*/}
 
-  #boton {
-    background-color: #11608e;
-    width: 29%;
-    height: 30px;
-    display: inline-block;
-    background-color: var(--yellow);
-    border-radius: 10px;
-    transition: all 5ms;
-  }
+/*pantalla para tablet*/
+@media only screen and (max-width: 768px)
+{/*...*/}
 
-  #boton:hover {
-    cursor: pointer;
-    border-bottom: #11608e solid 1px;
-    background-color: var(--bg-oscure);
-  }
+/*pantalla para laptop*/
+@media only screen and (max-width: 992px)
+{/*...*/}
 
-  #detail-product .boton span {
-    transition: 0.4s ease-in-out all;
-    position: absolute;
-    left: 56%;
-  }
-  #detail-product .boton:hover .icono {
-    left: 67%;
-    opacity: 1;
-    color: #b5fe83;
-  }
-  #detail-product .boton:hover .line {
-    left: 65%;
-    opacity: 1;
-    color: #b5fe83;
-  }
-
-  #detail-product .boton:hover span {
-    left: 52%;
-    color: #b5fe83;
-    text-transform: uppercase;
-  }
-
-  .product .oferta{
-    border-radius: 10px;
-    /* background-color: #e2e2e2; */
-    color: var(--red);
-    font-size: 15px;
-  }
+/*pantalla para large screen*/
+@media only screen and (max-width: 1200px)
+{/*...*/}

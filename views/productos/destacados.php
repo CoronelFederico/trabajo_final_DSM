@@ -33,7 +33,7 @@
                 Stock: <span style="color:green"><?= $product->stock ?></span>
                 <?php if (isset($_SESSION['indentity'])) : ?>
                     <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
-                        <a href="<?= baseUrl ?>/carrito/add&id=<?= $product->id ?>" class="button buy">Comprar</a>
+                        <a href="<?= baseUrl ?>/carrito/add&id=<?= $product->id ?>">Comprar</a>
                     <?php endif; ?>
                 <?php endif; ?>
             <?php else : ?>
@@ -44,7 +44,8 @@
         <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button buy">modificar</a>
     <?php else : ?>
         <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
-            <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" class="button buy">Añadir al carrito</a>
+            <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" >
+            <button class="btn">Agregar a carrito</button></a>
         <?php endif; ?>
         
     <?php endif; ?>

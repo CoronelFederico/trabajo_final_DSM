@@ -24,14 +24,15 @@
                 <td> <a href="<?= baseUrl ?>producto/ver&id=<?= $producto->id ?>"> <?= $producto->nombre ?></a></td>
                 <td>$<?= $producto->precio ?></td>
                 <td>
+                    <!-- aumentar -->
                     <a href="<?= baseUrl ?>carrito/up&index=<?= $indice ?>" class="button button-green">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                         </svg>
                     </a>
-
+                    <!-- stock -->
                     <p style="text-align: center;"><?= $valor['unidad'] ?></p>
-
+                    <!-- disminuir -->
                     <a href="<?= baseUrl ?>carrito/down&index=<?= $indice ?>" class="button button-red">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />

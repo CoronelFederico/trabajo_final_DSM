@@ -17,17 +17,17 @@
 
         <?php if (isset($_SESSION['identity'])) : ?>
             <?php if ($pro->stock != 0) : ?>
-               <s> <p>$<?= number_format($pro->precio, 2, ',', '.') ?></p></s>
+               <p>$<?= number_format($pro->precio, 2, ',', '.') ?></p>
             <?php endif; ?>
         <?php endif; ?>
 
 
         <h2>
             <?php if ($pro->stock >= 0) : ?>
-                <?= $pro->stock ?>
+                <p>Unidad disponible: <?= $pro->stock ?></p>
                 <?php if (isset($_SESSION['identity'])) : ?>
                     <?php if (!isset($_SESSION['admin'])) : ?>
-                        <a href="<?= baseUrl ?>/carrito/add&id=<?= $pro->id ?>" id="button" class="btn-move">Comprar</a>
+                        <a href="<?= baseUrl ?>/carrito/add&id=<?= $pro->id ?>" ><button class="btn verbut">Agregar a carrito</button></a>
                     <?php endif; ?>
 
                 <?php endif; ?>
