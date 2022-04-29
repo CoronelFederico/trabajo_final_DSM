@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 
-<Table>
+<table>
     <tr>
         <th>Orden del pedido</th>
         <th>Costo del pedido</th>
@@ -17,7 +17,7 @@
     <?php while ($ped = $pedidos->fetch_object()) : ?>
         <tr>
             <td> 
-                <a href="<?= baseUrl ?>pedido/detalle&id=<?= $ped->id ?>" class="button"> 
+                <a href="<?= baseUrl ?>pedido/detalle&id=<?= $ped->id ?>" class="button_slide slide_right"> 
                     Ver orden: <?= $ped->id ?>  
                 </a></td>
             <td>$<?= $ped->costo ?></td>
@@ -27,4 +27,4 @@
         </tr>
     <?php endwhile; ?>
 
-</Table>
+</table>

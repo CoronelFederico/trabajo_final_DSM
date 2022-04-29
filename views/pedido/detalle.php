@@ -3,7 +3,7 @@
 
     <?php if (isset($_SESSION['admin'])) : ?>
         <h3>Cambiar estado del pedido</h3>
-        <form action="<?= baseUrl ?>pedido/estado" method="POST">
+        <form action="<?= baseUrl ?>pedido/estado" class="formped" method="POST">
             <input type="hidden" value="<?= $pedido->id ?>" name="pedido_id">
 
             <label from="estado">Seleccionar el estado del producto.</label>
@@ -14,7 +14,7 @@
                 <option value="preparation">En preparacion</option>
                 <option value="deliver">Entregado</option>
             </select>
-            <input type="submit" value="Cambiar estado">
+            <input type="submit" class="button_slide slide_" value="Cambiar estado">
         </form>
         <br>
     <?php endif; ?>
@@ -73,15 +73,22 @@
                     // var_dump($stock);
                 }
                 ?>
-
+</strong>
 
             <?php endwhile; ?>
 
 
 
     </table>
-    <p> <b><?= Utils::showStatus($pedido->estado) ?></b></p>
-    <p> <i> Direccion del pedido a entregar: <?= $pedido->direccion ?> </i></p>
+
+    <label><strong>Informacón del pedido</strong></label>
+    <p> <?= Utils::showStatus($pedido->estado) ?></p>
+    
+    <label><strong> Información de la entrega</strong></label>
+    <p> Dirección del pedido a entregar: <?= $pedido->direccion ?> </p>
+    
+    <label><strong> Forma de entrega </strong></label>
+    <p> Direccion del pedido a entregar: <?= $pedido->direccion ?></p>
 
 
 <?php else : ?>

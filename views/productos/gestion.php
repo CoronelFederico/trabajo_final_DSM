@@ -1,32 +1,23 @@
 <h1>GESTION DE PRODUCTOS</h1>
-<a href="<?= baseUrl ?>producto/crear" class="button button-small">Crear producto</a>
+<a href="<?= baseUrl ?>producto/crear" class="button_slide slide_right">Crear producto</a>
 
 <!-- cargar productos -->
 <?php if (isset($_SESSION['producto']) && $_SESSION['producto'] == 'complete') : ?>
-    <!-- <strong style="color:green">EL producto fue cargado correctamente.</strong> -->
-    <script>
-        alertify.success('Producto cargado exitosamente');
-    </script>
+    <strong style="color:green">El producto fue cargado correctamente.</strong>
 
 <?php elseif (isset($_SESSION['producto']) && $_SESSION['producto'] != 'complete') : ?>
-    <!-- <strong style="color:red">El producto no fue cargado. </strong> -->
-    <script>
-        alertify.error('Producto no cargado');
-    </script>
+    <strong style="color:red">El producto no fue cargado. </strong>
+
 <?php endif; ?>
 <?php Utils::deleteSession('producto'); ?>
 
 <!-- eliminar productos -->
 <?php if (isset($_SESSION['delete']) && $_SESSION['delete'] == 'complete') : ?>
-    <!-- <strong style="color:green">EL producto fue eliminado correctamente.</strong> -->
-    <script>
-        alertify.warning('Producto eliminado exitosamente');
-    </script>
+    <strong style="color:green">EL producto fue eliminado correctamente.</strong>
+
 <?php elseif (isset($_SESSION['delete']) && $_SESSION['delete'] != 'complete') : ?>
-    <!-- <strong style="color:red">El producto no fue eliminado. </strong> -->
-    <script>
-        alertify.error('Producto no eliminado');
-    </script>
+    <strong style="color:red">El producto no puede ser eliminado. </strong>
+    
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>
 
@@ -54,9 +45,9 @@
             <td><?= $pro->stock; ?></td>
             <!-- <td><?= $pro->oferta; ?></td> -->
             <td><?= $pro->fecha; ?></td>
-            <td>
-                <a href="<?= baseUrl ?>producto/editar&id=<?= $pro->id ?>" class="button button-gestion">modificar</a>
-                <a href="<?= baseUrl ?>producto/eliminar&id=<?= $pro->id ?>" class="button button-red">Eliminar</a>
+            <td class="but">
+                <a href="<?= baseUrl ?>producto/editar&id=<?= $pro->id ?>" class="button_slide slide_right">Modificar</a>
+                <a href="<?= baseUrl ?>producto/eliminar&id=<?= $pro->id ?>" class="button_slide slide_down button_red">Eliminar</a>
             </td>
         </tr>
     <?php endwhile; ?>

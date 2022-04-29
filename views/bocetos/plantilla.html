@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Despensa Señor de Mailin - online</title>
     <link rel="stylesheet" href="/assets/css/estilo.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="<?= baseUrl ?>assets/img/icon.ico"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,46 +19,113 @@
       rel="stylesheet"
     />
   </head>
+
   <body class="grid-container">
     <header class="header">
-      <a class="logo">
-        <img src="/assets/img/logon.png" id="logo" alt="logo" />
+      <a class="logo" href="<?=baseUrl?>">
+        <img src="<?= baseUrl ?>assets/img/logon.png" id="logo" alt="logo" />
       </a>
 
       <nav class="navbar">
         <ul class="menu-horizontal">
-          <li><a href=""> Inicio</a></li>
+          <li><a href="<?= baseUrl ?>"> Inicio</a></li>
+
           <li>
             <a href="#" id="category"> categoria</a>
+            <?php $categorias = Utils::showCategorias(); ?>
             <ul class="menu-vertical">
-              <li><a class="m-categoria" href="">Fideos</a></li>
-              <li><a class="m-categoria" href="">Legumbres</a></li>
-              <li><a href="">Legumbres</a></li>
-              <li><a href="">Legumbres</a></li>
-              <li><a href="">Legumbres</a></li>
+              <?php while ($cat = $categorias->fetch_object()) : ?>
+              <li>
+                <a
+                  class="m-categoria"
+                  href="<?= baseUrl ?>categoria/ver&id=<?= $cat->id ?>"
+                  ><?= $cat->nombre; ?></a
+                >
+              </li>
+              <?php endwhile; ?>
             </ul>
           </li>
         </ul>
       </nav>
     </header>
 
+    <!--  -->
     <aside class="sidebar">
+
+
       <div class="login">
+        <?php if (!isset($_SESSION['identity'])) : ?>
         <h1>Bienvenido</h1>
-        <form action="#">
-          <input type="text" name="" id="" placeholder="Ingresar nombre"/>
-          <input type="text" name="" id="" placeholder="Ingresar contraseña"/>
+        <h4>
+          <?php if (isset($_SESSION['error_login']) && $_SESSION['error_login'] = "identificaion fallida") : ?>
+          <h5 style="color: red">
+            El correo electrónico o contraseña que ingresaste no está
+            relacionada a nuestra base de datos. Comprueba datos ingresados.
+          </h5>
+          <?php endif; ?>
+          <?php Utils::deleteSession('error_login'); ?>
+        </h4>
+
+        <form
+          id="formulario"
+          action="<?= baseUrl ?>usuario/login"
+          method="post"
+        >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ingresar nombre"
+          />
+          <input
+            type="password"
+            name="password"
+            id=""
+            placeholder="Ingresar contraseña"
+          />
           <input type="submit" class="button" value="Ingresar" />
         </form>
 
-        <div class="not-count">
-          <label for="">¿No tienes una cuenta? </label>
-          <a href="">Registrate ahora</a>
-        </div>
+        <?php else : ?>
+        <h1 style="text-transform: uppercase">
+          <?= $_SESSION['identity']->nombre ?>
+          <?= $_SESSION['identity']->apellidos ?>
+        </h1>
+        <?php endif; ?>
+
+        <ul class="activities">
+          <?php if (isset($_SESSION['admin'])) : ?>
+          <li>
+            <a href="<?= baseUrl ?>categoria/index">Gestionar categorias</a>
+          </li>
+          <li>
+            <a href="<?= baseUrl ?>producto/gestion">Gestionar productos</a>
+          </li>
+          <!-- <li><a href="<?= baseUrl ?>producto/update">Actualizar producto</a></li> -->
+          <li><a href="<?= baseUrl ?>pedido/gestion">Gestionar pedidos</a></li>
+          <?php endif; ?>
+
+          <?php if (isset($_SESSION['identity'])) : ?>
+
+          <?php if (!isset($_SESSION['admin'])) : ?>
+          <li><a href="<?= baseUrl ?>pedido/mispedidos">Mis pedidos</a></li>
+          <?php endif; ?>
+
+          <li><a href="<?= baseUrl ?>usuario/logout">Cerrar sesion</a></li>
+
+          <?php else : ?>
+          <div class="not-count">
+            <label for="">¿No tienes una cuenta? </label>
+            <a href="">Registrate ahora</a>
+          </div>
+          <?php endif; ?>
+        </ul>
       </div>
     </aside>
 
     <article class="main">
+
+
       <div class="carrito">
         <ul>
           <li>Productos:(0)</li>
@@ -79,55 +152,7 @@
         <a href=""> Agregar al carrito </a>
       </div>
 
-      <div class="product">
-        <a href="">
-          <img
-            src="../../uploads/images/394b76a2cee9ab5e777fa37ad31ad429.1500.0.0.0.wmark.56cb139b.jpg"
-          />
-          <h2>Heading</h2>
-        </a>
-        <p>$</p>
-        <p>Stock:</p>
 
-        <a href=""> Agregar al carrito </a>
-      </div>
-
-      <div class="product">
-        <a href="">
-          <img
-            src="../../uploads/images/394b76a2cee9ab5e777fa37ad31ad429.1500.0.0.0.wmark.56cb139b.jpg"
-          />
-          <h2>Heading</h2>
-        </a>
-        <p>$</p>
-        <p>Stock:</p>
-
-        <a href="" class="cart"> Agregar al carrito </a>
-      </div>
-      <div class="product">
-        <a href="">
-          <img
-            src="../../uploads/images/394b76a2cee9ab5e777fa37ad31ad429.1500.0.0.0.wmark.56cb139b.jpg"
-          />
-          <h2>Heading</h2>
-        </a>
-        <p>$</p>
-        <p>Stock:</p>
-
-        <a href="" class="cart"> Agregar al carrito </a>
-      </div>
-      <div class="product">
-        <a href="">
-          <img
-            src="../../uploads/images/394b76a2cee9ab5e777fa37ad31ad429.1500.0.0.0.wmark.56cb139b.jpg"
-          />
-          <h2>Heading</h2>
-        </a>
-        <p>$</p>
-        <p>Stock:</p>
-
-        <a href="" class="cart"> Agregar al carrito </a>
-      </div>
     </article>
 
     <footer class="footer">
@@ -135,13 +160,12 @@
         <ul class="menu-horizontal">
           <li><a href=""> Inicio</a></li>
           <li>
-            <a href="#category"> categoria</a></li>
-            
+            <a href="#category"> categoria</a>
+          </li>
         </ul>
       </nav>
 
-      <label for=""> @ Derechos reservados</label>
-
+      <label for=""> <?= copy?> Derechos reservados</label>
     </footer>
   </body>
 </html>

@@ -33,10 +33,10 @@
                 <?php endif; ?>
 
                 <?php if (isset($_SESSION['admin'])) : ?>
-                    <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button buy">modificar</a>
+                    <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button_slide slide_left">modificar</a>
                 <?php else : ?>
                     <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
-                        <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" class=""><button class="btn">Agregar a carrito</button></a>
+                        <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" class="button_slide slide_left">Agregar a carrito</a>
                     <?php endif; ?>
                 <?php endif; ?>
 

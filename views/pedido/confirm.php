@@ -55,7 +55,7 @@
         </table>
 
 
-        <a href="<?= baseUrl?>carrito/deleteALLPedido" class="button">Aceptar</a>
+        <a href="<?= baseUrl?>carrito/deleteALLPedido" class="button_slide slide_diagonal">Ir a pedidos realizados</a>
     <?php endif; ?>
 
 <?php else : ?>

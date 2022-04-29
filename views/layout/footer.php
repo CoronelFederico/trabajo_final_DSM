@@ -1,14 +1,17 @@
-</div>
-</div>
 
-<!-- PIE DE PÁGINA -->
-<footer id="footer">
-	<?php if (!isset($_SESSION['identity'])) : ?>
-		<p>Para poder observar los precios de los productos presentes y agregarlo al carrito debes estar registrado en nuestras bases de datos. <a href="#email" style="color: wheat;">Registrarse o iniciar sesion.</a></p>
-	<?php endif; ?>
-	<p>&copy; <?= date('Y') ?></p>
+    </article>
+
+<footer class="footer">
+  <nav class="navbar">
+	<ul class="menu-horizontal">
+	  <li><a href=""> Inicio</a></li>
+	  <li>
+		<a href="#category"> categoria</a>
+	  </li>
+	</ul>
+  </nav>
+
+  <label for=""> Despensa señor de Mailin &copy; <?php echo date ('Y'); ?> Derechos reservados</label>
 </footer>
-</div>
 </body>
-
 </html>

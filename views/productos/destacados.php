@@ -22,11 +22,13 @@
 
         <?php if (isset($_SESSION['identity'])) : ?>
             <?php if ($product->stock < 0) : ?>
-                <s>
                     <p>$<?= number_format($product->precio, 2, ',', '.') ?></p>
-                </s>
             <?php endif; ?>
+            
         <?php endif; ?>
+        <?php if (isset($_SESSION['identity'])) : ?>
+                    <p>$<?= number_format($product->precio, 2, ',', '.') ?></p>
+                <?php endif; ?>
 
         <p>
             <?php if ($product->stock > 0) : ?>
@@ -41,11 +43,11 @@
     <?php endif; ?>
 
     <?php if (isset($_SESSION['admin'])) : ?>
-        <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button buy">modificar</a>
+        <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button_slide slide_left">Modificar</a>
     <?php else : ?>
         <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
-            <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" >
-            <button class="btn">Agregar a carrito</button></a>
+            <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" class="button_slide slide_left">
+            Agregar a carrito</a>
         <?php endif; ?>
         
     <?php endif; ?>
