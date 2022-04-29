@@ -4,7 +4,7 @@
 <footer class="footer">
   <nav class="navbar">
 	<ul class="menu-horizontal">
-	  <li><a href=""> Inicio</a></li>
+	  <li><a href="<?= baseUrl?>"> Inicio</a></li>
 	  <li>
 		<a href="#category"> categoria</a>
 	  </li>

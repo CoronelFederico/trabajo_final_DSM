@@ -31,7 +31,7 @@
                 <p><strong>Unidad disponible:</strong> <?= $pro->stock ?></p>
                 <?php if (isset($_SESSION['identity'])) : ?>
                     <?php if (!isset($_SESSION['admin'])) : ?>
-                        <a href="<?= baseUrl ?>/carrito/add&id=<?= $pro->id ?>"><button class="button_slide slide_left">Agregar a carrito</button></a>
+                        <a class="button_slide slide_left" href="<?= baseUrl ?>carrito/add&id=<?= $pro->id ?>  ">Agregar a carrito</a>
                     <?php endif; ?>
 
                 <?php endif; ?>

@@ -199,6 +199,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   background-color: black;
+  text-align: center;
 }
 
 footer label {
@@ -486,7 +487,7 @@ a {
     font-size: 15px;
   }
   .detail-product img {
-    width: 200px;
+    width: 300px;
   }
 }
 
@@ -532,7 +533,7 @@ a {
     font-size: 15px;
   }
   .detail-product img {
-    width: 600px;
+    width: 400px;
   }
 }
 
@@ -563,6 +564,10 @@ a {
   .not-count {
     font-size: 13px;
   }
+  .detail-product img {
+    width: 500px;
+  }
+
 }
 /* portatil (4K)*/
 @media (min-width: 2560px) {
@@ -592,10 +597,13 @@ a {
   }
 
   .detail-product{
-    font-size: 30px;
+    font-size: 35px;
   }
   .detail-product img{
-    width: 800px;
+    width: 900px;
   }
 
+  .card a{
+    width: auto;
+  }
 }

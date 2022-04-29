@@ -15,7 +15,7 @@
     </tr>
 
     <?php while ($ped = $pedidos->fetch_object()) : ?>
-        <tr>
+        <tr class="animate__animated animate__lightSpeedInLeft">
             <td> 
                 <a href="<?= baseUrl ?>pedido/detalle&id=<?= $ped->id ?>" class="button_slide slide_right"> 
                     Ver orden: <?= $ped->id ?>  

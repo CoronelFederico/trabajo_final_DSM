@@ -36,7 +36,7 @@
 
     </tr>
     <?php while ($pro = $productos->fetch_object()) : ?>
-        <tr>
+        <tr class="animate__animated animate__lightSpeedInLeft">
             <td><?= $pro->id; ?></td>
             <td><?= $pro->categoria_id; ?></td>
             <td><?= $pro->nombre; ?></td>
