@@ -21,5 +21,5 @@
     <label for="password">Contraseña</label>
     <input type="password" name="password" id="password" required>
 
-    <input type="submit" value="enviar">
+    <input type="submit" class="button" value="enviar">
 </form>
