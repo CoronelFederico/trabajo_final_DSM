@@ -14,32 +14,35 @@
                     Producto en oferta
                 <?php endif; ?>
             </h3> -->
-<h4>Descripción del producto</h4>
+            <h4>Descripción del producto</h4>
             <p class="description"><?= $pro->descripcion ?></p>
-<h4>Precio del producto</h4>
 
+
+            <p>
+
+            <h4>Precio del producto</h4>
             <?php if (isset($_SESSION['identity'])) : ?>
                 <?php if ($pro->stock != 0) : ?>
                     <p>$<?= number_format($pro->precio, 2, ',', '.') ?></p>
                 <?php endif; ?>
             <?php endif; ?>
 
+            <?php if ($pro->stock >= 0) : ?>
+                <p><strong>Unidad disponible:</strong> <?= $pro->stock ?></p>
+                <?php if (isset($_SESSION['identity'])) : ?>
+                    <?php if (!isset($_SESSION['admin'])) : ?>
+                        <a href="<?= baseUrl ?>/carrito/add&id=<?= $pro->id ?>"><button class="button_slide slide_left">Agregar a carrito</button></a>
+                    <?php endif; ?>
 
-            <p>
-                <?php if ($pro->stock >= 0) : ?>
-            <p><strong>Unidad disponible:</strong> <?= $pro->stock ?></p>
-            <?php if (isset($_SESSION['identity'])) : ?>
-                <?php if (!isset($_SESSION['admin'])) : ?>
-                    <a href="<?= baseUrl ?>/carrito/add&id=<?= $pro->id ?>"><button class="button_slide slide_left">Agregar a carrito</button></a>
                 <?php endif; ?>
-
+            <?php else : ?>
+                Producto no disponible
             <?php endif; ?>
-        <?php else : ?>
-            Producto no disponible
-        <?php endif; ?>
-        </p>
+            </p>
 
-</div>
+
+
+        </div>
 
     <?php else : ?>
         <h1>PRODUCTO NO ENCOTRADO</h1>

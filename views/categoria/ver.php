@@ -22,27 +22,29 @@
                     <?php endif ?>
                     <h2><?= $product->nombre; ?></h2>
                 </a>
-                <?php if (isset($_SESSION['identity'])) : ?>
-                    <p>$<?= number_format($product->precio, 2, ',', '.') ?></p>
-                <?php endif; ?>
 
-                <?php if ($product->stock > 0) : ?>
-                    Stock: <span style="color:green"><?= $product->stock ?></span>
-                <?php else : ?>
-                    <p style="color:red;">Producto no disponible</p>
-                <?php endif; ?>
-
-                <?php if (isset($_SESSION['admin'])) : ?>
-                    <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button_slide slide_left">modificar</a>
-                <?php else : ?>
-                    <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
-                        <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" class="button_slide slide_left">Agregar a carrito</a>
+                <div class="text">
+                    <?php if (isset($_SESSION['identity'])) : ?>
+                        <p>$<?= number_format($product->precio, 2, ',', '.') ?></p>
                     <?php endif; ?>
-                <?php endif; ?>
 
-                </p>
+                    <?php if ($product->stock > 0) : ?>
+                        Stock: <span style="color:green"><?= $product->stock ?></span>
+                    <?php else : ?>
+                        <p style="color:red;">Producto no disponible</p>
+                    <?php endif; ?>
 
+                    <?php if (isset($_SESSION['admin'])) : ?>
+                        <a href="<?= baseUrl ?>producto/update&id=<?= $product->id ?>" class="button_slide slide_left">modificar</a>
+                    <?php else : ?>
+                        <?php if (!isset($_SESSION['admin']) && $product->stock > 0) : ?>
+                            <a href="<?= baseUrl ?>carrito/add&id=<?= $product->id ?>" class="button_slide slide_left">Agregar a carrito</a>
+                        <?php endif; ?>
+                    <?php endif; ?>
 
+                    </p>
+
+                </div>
             </div>
 
         <?php endwhile; ?>

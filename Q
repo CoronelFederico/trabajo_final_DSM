@@ -1,0 +1,83 @@
+[33mcommit 44ab1829131693d36e3af4ee22660f8010976f23[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Fri Apr 29 02:17:12 2022 -0300
+
+    error de boton de registro
+
+[33mcommit b79a818e25913d8553655231d866a6dfad8c6369[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Fri Apr 29 02:10:31 2022 -0300
+
+    Se agrego las modificacion de interfaz definitiva
+
+[33mcommit 4b848a76ef50c4f6cad2452e6d42c7162d653da6[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Apr 25 14:35:22 2022 -0300
+
+    actualizacion de la nueva plantilla v 0.2
+
+[33mcommit 445c16ac20ec9a966d86ec36d09ef51759453e2f[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Apr 25 05:53:20 2022 -0300
+
+    actualizacion de plantilla
+
+[33mcommit ad8e65bbe185c9fcd022d9c57b912e8ee552a7d6[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Apr 25 00:32:19 2022 -0300
+
+    eliminacion de plantilla antigua de views/bocetos
+
+[33mcommit 6b120b462b709d67f049c7c69e01dba30a7e8d35[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Apr 25 00:30:00 2022 -0300
+
+    Actualizacion de modificaciones
+
+[33mcommit 3cf2e9bbf542b4e128d8d8fbf59be8095e80086e[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Wed Mar 30 21:21:40 2022 -0300
+
+    linea 19 utils. inserte un location de js
+
+[33mcommit 0fcf2b114985cca2a0b8acfbc00f2a7e866a25b9[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Wed Mar 30 21:17:04 2022 -0300
+
+    solucionar error utils linea 19
+
+[33mcommit 645446b0191cc0da9551f1aeb7a1ef616bf34273[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Wed Mar 30 20:17:37 2022 -0300
+
+    solucion de error contacto
+
+[33mcommit 139f37c05b2bb0f567d1163a294487bb1bc0c4d3[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Tue Mar 22 19:23:57 2022 -0300
+
+    modificacion de codigo
+
+[33mcommit 53e836ea3d7906f5e5047dd4977449c38a9f6538[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Tue Mar 22 19:18:09 2022 -0300
+
+    Actualizacion de errores de codigo
+
+[33mcommit 669deb56c977e67301808acf1d5ce2a1911a0d01[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Mar 21 21:19:38 2022 -0300
+
+    modificacion de producto/destacado
+
+[33mcommit d378e87239439e7e2f9491778ac46578cd0370f9[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Mar 21 21:14:04 2022 -0300
+
+    Actualizacion de proyectos. Avances y sistema funcionando
+
+[33mcommit 34b5eca6601855256a6e8013e91209df763df9a8[m[33m ([m[1;32mall[m[33m)[m
+Author: federico coronel <coronelfedericod@gmail.com>
+Date:   Mon Jan 17 19:28:36 2022 -0300
+
+    Carga de avances de la pagina web

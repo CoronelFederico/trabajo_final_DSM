@@ -2,21 +2,24 @@
     <h1>Detalle del pedido Nº <?= $pedido->id ?></h1>
 
     <?php if (isset($_SESSION['admin'])) : ?>
-        <h3>Cambiar estado del pedido</h3>
-        <form action="<?= baseUrl ?>pedido/estado" class="formped" method="POST">
-            <input type="hidden" value="<?= $pedido->id ?>" name="pedido_id">
+        <?php if (Utils::showStatus($pedido->estado) && Utils::showStatus($pedido->estado) != "Hemos entregado tu pedido.") : ?>
 
-            <label from="estado">Seleccionar el estado del producto.</label>
-            <select name="estado" id="estado">
-                <option>--Estado del pedido actual: <b><?= Utils::showStatus($pedido->estado) ?></b>--</option>
-                <option value="confirmado">Confirmado</option>
-                <option value="pending">Pendiente a recibir el pago</option>
-                <option value="preparation">En preparacion</option>
-                <option value="deliver">Entregado</option>
-            </select>
-            <input type="submit" class="button_slide slide_" value="Cambiar estado">
-        </form>
-        <br>
+            <h3>Cambiar estado del pedido</h3>
+            <form action="<?= baseUrl ?>pedido/estado" class="formped" method="POST">
+                <input type="hidden" value="<?= $pedido->id ?>" name="pedido_id">
+
+                <label from="estado">Seleccionar el estado del producto.</label>
+                <select name="estado" id="estado">
+                    <option>--Estado del pedido actual: <b><?= Utils::showStatus($pedido->estado) ?></b>--</option>
+                    <option value="confirmado">Confirmado</option>
+                    <option value="pending">Pendiente a recibir el pago</option>
+                    <option value="preparation">En preparacion</option>
+                    <option value="deliver">Entregado</option>
+                </select>
+                <input type="submit" class="button_slide slide_" value="Cambiar estado">
+            </form>
+            <br>
+        <?php endif; ?>
     <?php endif; ?>
 
 
@@ -38,7 +41,7 @@
                 <th>Nombre del producto</th>
                 <th>Precio del producto</th>
                 <th>unidades compradas</th>
-            </tr> 
+            </tr>
             <?php while ($producto = $productos->fetch_object()) : ?>
                 <tr>
                     <!-- <td><?= $producto->id ?></td> -->
@@ -54,28 +57,27 @@
                     <td><?= $producto->unidades ?></td>
                 </tr>
                 <?php
+                if (isset($_SESSION['admin']) && $_SESSION['producto'] == 'complete'){
 
-                if (Utils::showStatus($pedido->estado) && Utils::showStatus($pedido->estado) == "Hemos entregado tu pedido.") {
 
-                    $estado = Utils::showStatus($pedido->estado);
+                    if (Utils::showStatus($pedido->estado) && Utils::showStatus($pedido->estado) != "Hemos entregado tu pedido." ) {
 
-                    // $stock = array(
-                    //     'id' => $producto->id,
-                    //     'unidad' => $producto->unidades
-                    // );
+                        $estado = Utils::showStatus($pedido->estado);
 
-                    $id=$producto->id;
-                    $unidad=$producto->unidades;
+                        $id = $producto->id;
+                        $unidad = $producto->unidades;
 
-                    ProductoController::stock($id,$unidad);
+                        ProductoController::stock($id, $unidad);
+                        
+                        // echo '<pre>';
+                        // var_dump($stock);
+                    }
 
-                    // echo '<pre>';
-                    // var_dump($stock);
                 }
                 ?>
-</strong>
+        </strong>
 
-            <?php endwhile; ?>
+    <?php endwhile; ?>
 
 
 
@@ -83,12 +85,18 @@
 
     <label><strong>Informacón del pedido</strong></label>
     <p> <?= Utils::showStatus($pedido->estado) ?></p>
-    
+
+    <label><strong> Informacion del comprador </strong></label>
+    <p> Nombre: <?= $_SESSION['identity']->nombre ?></p>
+    <p> Apellido: <?= $_SESSION['identity']->apellidos ?></p>
+    <p> Email: <?= $_SESSION['identity']->email ?></p>
+
+
     <label><strong> Información de la entrega</strong></label>
     <p> Dirección del pedido a entregar: <?= $pedido->direccion ?> </p>
-    
+
     <label><strong> Forma de entrega </strong></label>
-    <p> Direccion del pedido a entregar: <?= $pedido->direccion ?></p>
+    <p> Entrega a domicilio.</p>
 
 
 <?php else : ?>

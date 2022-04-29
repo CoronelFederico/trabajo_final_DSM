@@ -51,7 +51,7 @@
                         <td><?= $producto->unidades ?></td>
                     </tr>
                 <?php endwhile; ?>
-                <strong></p>
+                            </strong></p>
         </table>
 
 
