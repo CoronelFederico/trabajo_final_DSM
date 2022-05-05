@@ -78,4 +78,10 @@ class Utils
 
         return $value;
     }
+
+    public static function alert(){
+        echo "<script> const alert = document.getElementById('alert');function r() {alert.classList.add('animate__fadeOut')} setTimeout('r()', 5000);</script>";
+        echo "<script> const alert = document.getElementById('alert');function r() {alert.classList.remove('animate__animated')} setTimeout('r()', 5000);</script>";
+
+    }
 }

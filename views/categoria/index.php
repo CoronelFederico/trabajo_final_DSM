@@ -1,15 +1,14 @@
 <h1>Gestionar categorias</h1>
 <?php if (isset($_SESSION['delete']) && $_SESSION['delete'] == 'complete') : ?>
-  <p class="animate__animated animate__backInLeft"> <strong style="color:green">
-      
-        La categoría fue eliminada correctamente.
-    </strong> </p>
+    <p id="alert" class="animate__animated animate__backInLeft"> <strong style="color:green">
 
+            La categoría fue eliminada correctamente.
+        </strong> </p>
 
 <?php elseif (isset($_SESSION['delete']) && $_SESSION['delete'] != 'complete') : ?>
-   <p class="animate__animated animate__backInLeft"> <strong style="color:red" >
-        La categoría no fue eliminada. No olvides que para eliminar una categoría, la misma no debe contener ningún producto asociado.
-    </strong> </p>
+    <p id="alert" class="animate__animated animate__backInLeft"> <strong style="color:red">
+            La categoría no fue eliminada. No olvides que para eliminar una categoría, la misma no debe contener ningún producto asociado.
+        </strong> </p>
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>
 
@@ -37,3 +36,5 @@
     <?php endwhile; ?>
 
 </table>
+
+<?php Utils::alert()?>

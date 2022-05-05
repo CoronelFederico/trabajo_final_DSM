@@ -3,20 +3,20 @@
 
 <!-- cargar productos -->
 <?php if (isset($_SESSION['producto']) && $_SESSION['producto'] == 'complete') : ?>
-    <p  class="animate__animated animate__backInLeft"><strong style="color:green">El producto fue cargado correctamente.</strong></p>
+    <p id="alert" class="animate__animated animate__backInLeft"><strong style="color:green">El producto fue cargado correctamente.</strong></p>
 
 <?php elseif (isset($_SESSION['producto']) && $_SESSION['producto'] != 'complete') : ?>
-    <p class="button_slide slide_right"><strong style="color:red">El producto no fue cargado. </strong></p>
+    <p id="alert" class="animate__animated animate__backInLeft"><strong style="color:red">El producto no fue cargado. </strong></p>
 
 <?php endif; ?>
 <?php Utils::deleteSession('producto'); ?>
 
 <!-- eliminar productos -->
 <?php if (isset($_SESSION['delete']) && $_SESSION['delete'] == 'complete') : ?>
-    <p><strong style="color:green">EL producto fue eliminado correctamente.</strong></p>
+    <p id="alert" class="animate__animated animate__backInLeft"><strong style="color:green">El producto fue eliminado correctamente.</strong></p>
 
 <?php elseif (isset($_SESSION['delete']) && $_SESSION['delete'] != 'complete') : ?>
-    <p><strong style="color:red">El producto no puede ser eliminado. </strong></p>
+    <p id="alert" class="animate__animated animate__backInLeft"><strong style="color:red">El producto no puede ser eliminado. </strong></p>
     
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>
@@ -53,3 +53,5 @@
     <?php endwhile; ?>
 
 </table>
+
+<?php Utils::alert() ?>
