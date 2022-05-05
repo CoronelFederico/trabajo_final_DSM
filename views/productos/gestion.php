@@ -3,20 +3,20 @@
 
 <!-- cargar productos -->
 <?php if (isset($_SESSION['producto']) && $_SESSION['producto'] == 'complete') : ?>
-    <strong style="color:green">El producto fue cargado correctamente.</strong>
+    <p  class="animate__animated animate__backInLeft"><strong style="color:green">El producto fue cargado correctamente.</strong></p>
 
 <?php elseif (isset($_SESSION['producto']) && $_SESSION['producto'] != 'complete') : ?>
-    <strong style="color:red">El producto no fue cargado. </strong>
+    <p class="button_slide slide_right"><strong style="color:red">El producto no fue cargado. </strong></p>
 
 <?php endif; ?>
 <?php Utils::deleteSession('producto'); ?>
 
 <!-- eliminar productos -->
 <?php if (isset($_SESSION['delete']) && $_SESSION['delete'] == 'complete') : ?>
-    <strong style="color:green">EL producto fue eliminado correctamente.</strong>
+    <p><strong style="color:green">EL producto fue eliminado correctamente.</strong></p>
 
 <?php elseif (isset($_SESSION['delete']) && $_SESSION['delete'] != 'complete') : ?>
-    <strong style="color:red">El producto no puede ser eliminado. </strong>
+    <p><strong style="color:red">El producto no puede ser eliminado. </strong></p>
     
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>
@@ -36,7 +36,7 @@
 
     </tr>
     <?php while ($pro = $productos->fetch_object()) : ?>
-        <tr class="animate__animated animate__lightSpeedInLeft">
+        <tr>
             <td><?= $pro->id; ?></td>
             <td><?= $pro->categoria_id; ?></td>
             <td><?= $pro->nombre; ?></td>

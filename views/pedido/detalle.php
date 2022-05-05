@@ -57,9 +57,7 @@
                     <td><?= $producto->unidades ?></td>
                 </tr>
                 <?php
-                if (isset($_SESSION['admin']) && $_SESSION['producto'] == 'complete'){
-
-
+                if (isset($_SESSION['admin']) && !isset($_SESSION['producto'])){
                     if (Utils::showStatus($pedido->estado) && Utils::showStatus($pedido->estado) != "Hemos entregado tu pedido." ) {
 
                         $estado = Utils::showStatus($pedido->estado);
@@ -72,7 +70,6 @@
                         // echo '<pre>';
                         // var_dump($stock);
                     }
-
                 }
                 ?>
         </strong>

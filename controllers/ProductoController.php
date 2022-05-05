@@ -241,8 +241,6 @@ class ProductoController
 
             if ($save) {
                 $_SESSION['producto'] = 'complete';
-            } else {
-                $_SESSION['producto'] = 'failed';
             }
         } else {
             $_SESSION['producto'] = 'failed';

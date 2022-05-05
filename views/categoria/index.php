@@ -1,18 +1,15 @@
 <h1>Gestionar categorias</h1>
 <?php if (isset($_SESSION['delete']) && $_SESSION['delete'] == 'complete') : ?>
-    <strong style="color:green">La categoría fue eliminada correctamente.</strong>
-    <script>
-        VanillaToasts.create({
-            title: 'Welcome to my site',
-            text: 'This toast will hide after 5000ms or when you click it',
-            type: 'warning', // success, info, warning, error   / optional parameter
-            icon: '/img/alert-icon.jpg', // optional parameter
-            timeout: 5000 // hide after 5000ms, // optional parameter
-        });
-    </script>
+  <p class="animate__animated animate__backInLeft"> <strong style="color:green">
+      
+        La categoría fue eliminada correctamente.
+    </strong> </p>
+
+
 <?php elseif (isset($_SESSION['delete']) && $_SESSION['delete'] != 'complete') : ?>
-    <strong style="color:red">La categoría no fue eliminada. No olvides que para eliminar una categoría, la misma no debe contener ningún producto asociado.</i>
-    </strong>
+   <p class="animate__animated animate__backInLeft"> <strong style="color:red" >
+        La categoría no fue eliminada. No olvides que para eliminar una categoría, la misma no debe contener ningún producto asociado.
+    </strong> </p>
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>
 
@@ -25,7 +22,7 @@
         <th>Eliminar</th>
     </tr>
     <?php while ($cat = $categorias->fetch_object()) : ?>
-        <tr class="animate__animated animate__lightSpeedInLeft">
+        <tr>
             <td><?= $cat->id; ?></td>
             <td><?= $cat->nombre; ?></td>
             <td>

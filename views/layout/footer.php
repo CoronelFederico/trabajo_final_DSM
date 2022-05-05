@@ -13,5 +13,7 @@
 
   <label for=""> Despensa señor de Mailin &copy; <?php echo date ('Y'); ?> Derechos reservados</label>
 </footer>
+
+
 </body>
 </html>

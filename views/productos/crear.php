@@ -1,13 +1,13 @@
 <?php if (isset($edit) && isset($pro) && is_object($pro)) : ?>
-    <h1>Editar producto<?= $pro->nombre; ?></h1>
+    <h1>Editar producto <?= $pro->nombre; ?></h1>
     <?php $url_action = baseUrl . 'producto/save&id=' . $pro->id; ?>
 <?php else : ?>
-    <h1>Cargar un nuevo producto</h1>
+    <h1>Cargar un nuevo producto </h1>
     <?php $url_action = baseUrl . 'producto/save'; ?>
 <?php endif; ?>
 
 
-<form action="<?= $url_action ?>" method="POST" enctype="multipart/form-data">
+<form action="<?= $url_action ?>" method="POST" enctype="multipart/form-data" class="product">
 
     <label for="nombre">Nombre del producto</label>
     <input type="text" name="nombre" id="nombre" value="<?= isset($pro) && is_object($pro) ? $pro->nombre : ''; ?>">
