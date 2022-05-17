@@ -83,15 +83,15 @@
     <label><strong>Informacón del pedido</strong></label>
     <p> <?= Utils::showStatus($pedido->estado) ?></p>
 
-    <label><strong> Informacion del comprador </strong></label>
+    <!-- <label><strong> Informacion del comprador </strong></label>
     <p> Nombre: <?= $_SESSION['identity']->nombre ?></p>
     <p> Apellido: <?= $_SESSION['identity']->apellidos ?></p>
-    <p> Email: <?= $_SESSION['identity']->email ?></p>
+    <p> Email: <?= $_SESSION['identity']->email ?></p> -->
 
 
     <label><strong> Información de la entrega</strong></label>
     <p> Dirección del pedido a entregar: <?= $pedido->direccion ?> </p>
-
+    <p> Contacto ingresado: <?= $pedido->contacto?></p>
     <label><strong> Forma de entrega </strong></label>
     <p> Entrega a domicilio.</p>
 

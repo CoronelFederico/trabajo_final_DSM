@@ -21,7 +21,7 @@
             type="email"
             name="email"
             id="email"
-            placeholder="Ingresar nombre"
+            placeholder="Ingresar correo electronico"
           />
           <input
             type="password"
@@ -70,6 +70,7 @@
     </aside>
 
     <article class="main">
+      <?php if(!isset($_SESSION['admin'])):?>
     <div class="carrito">
         <ul>
 				<?php $stats = Utils::statsCart(); ?>
@@ -80,4 +81,5 @@
           <li><a href="<?= baseUrl ?>carrito/index" class="button_slide slide_diagonal">Ir a mi carrito</a></li>
         </ul>
       </div>
+      <?php endif;?>
       <hr class="categoria" />

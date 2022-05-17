@@ -20,9 +20,9 @@
 
             <p>
 
-            <h4>Precio del producto</h4>
             <?php if (isset($_SESSION['identity'])) : ?>
                 <?php if ($pro->stock != 0) : ?>
+                    <h4>Precio del producto</h4>
                     <p>$<?= number_format($pro->precio, 2, ',', '.') ?></p>
                 <?php endif; ?>
             <?php endif; ?>
